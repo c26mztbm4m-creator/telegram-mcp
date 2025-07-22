@@ -1,0 +1,20 @@
+{
+  "name": "telegram-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "supergateway --stdio \"node src/index.js\" --port 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "supergateway": "^3.4.0",
+    "zod": "^3.25.76"
+  }
+}
