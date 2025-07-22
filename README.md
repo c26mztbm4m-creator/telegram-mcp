@@ -1,93 +1,110 @@
-# Telegram MCP Server
+# 🤖 Telegram MCP Server
 
-一个基于 Model Context Protocol (MCP) 的 Telegram Bot API 服务器，提供完整的 Telegram Bot 功能集成。
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/guangxiangdebizi/telegram-mcp.svg)](https://github.com/guangxiangdebizi/telegram-mcp/stargazers)
 
-## 功能特性
+A comprehensive **Telegram Bot API server** built on the **Model Context Protocol (MCP)**, providing seamless integration with Telegram Bot functionality through a modern, modular architecture.
 
-### 基础消息功能
-- ✅ **sendMessage** - 发送文本消息
-- ✅ **forwardMessage** - 转发消息
-- ✅ **deleteMessage** - 删除消息
+## 🚀 Features
 
-### 媒体文件发送
-- ✅ **sendPhoto** - 发送图片
-- ✅ **sendDocument** - 发送文档
-- ✅ **sendVideo** - 发送视频
-- ✅ **sendAudio** - 发送音频
-- ✅ **sendVoice** - 发送语音消息
+### 📨 Core Messaging
+- ✅ **sendMessage** - Send text messages with rich formatting
+- ✅ **forwardMessage** - Forward messages between chats
+- ✅ **deleteMessage** - Remove messages from chats
 
-### 位置和联系人
-- ✅ **sendLocation** - 发送位置信息
-- ✅ **sendContact** - 发送联系人信息
+### 🎬 Media Support
+- ✅ **sendPhoto** - Share images with captions
+- ✅ **sendDocument** - Send files and documents
+- ✅ **sendVideo** - Share video content
+- ✅ **sendAudio** - Send audio files
+- ✅ **sendVoice** - Send voice messages
 
-### 消息编辑
-- ✅ **editMessageText** - 编辑消息文本
-- ✅ **editMessageCaption** - 编辑媒体消息标题
+### 📍 Location & Contacts
+- ✅ **sendLocation** - Share geographical coordinates
+- ✅ **sendContact** - Share contact information
 
-## 项目结构
+### ✏️ Message Management
+- ✅ **editMessageText** - Edit existing text messages
+- ✅ **editMessageCaption** - Modify media captions
+
+## 📁 Project Structure
 
 ```
 telegram-mcp/
 ├── src/
-│   ├── index.js                 # 主入口文件
+│   ├── index.js                 # Main entry point
 │   └── tools/
-│       ├── basic-messaging.js   # 基础消息工具
-│       ├── media.js             # 媒体文件工具
-│       ├── location-contact.js  # 位置和联系人工具
-│       └── message-editing.js   # 消息编辑工具
-├── package.json
-├── to-do-list.md
-└── README.md
+│       ├── basic-messaging.js   # Core messaging tools
+│       ├── media.js             # Media handling tools
+│       ├── location-contact.js  # Location & contact tools
+│       └── message-editing.js   # Message editing tools
+├── package.json                 # Dependencies & scripts
+├── to-do-list.md               # Development roadmap
+└── README.md                   # Project documentation
 ```
 
-## 安装和使用
+## 🛠️ Installation & Setup
 
-### 1. 安装依赖
-```bash
-npm install
-```
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Telegram Bot Token ([Get one from @BotFather](https://t.me/botfather))
 
-### 2. 配置环境变量
-创建 `.env` 文件并添加你的 Telegram Bot Token：
-```
-TELEGRAM_BOT_TOKEN=your_bot_token_here
-```
+### Quick Start
 
-### 3. 启动服务器
-```bash
-npm start
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/guangxiangdebizi/telegram-mcp.git
+   cd telegram-mcp
+   ```
 
-服务器将在端口 8000 上启动，并提供 MCP 协议接口。
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## API 工具使用示例
+3. **Configure environment**
+   Create a `.env` file in the root directory:
+   ```env
+   TELEGRAM_BOT_TOKEN=your_bot_token_here
+   ```
 
-### 发送文本消息
-```javascript
+4. **Start the server**
+   ```bash
+   npm start
+   ```
+
+🎉 **Server will start on port 8000** and provide MCP protocol interface!
+
+## 📖 API Usage Examples
+
+### Send Text Message
+```json
 {
   "tool": "telegram_sendMessage",
   "params": {
     "chatId": "123456789",
-    "text": "Hello, World!",
+    "text": "Hello, World! 🌍",
     "parseMode": "Markdown"
   }
 }
 ```
 
-### 发送图片
-```javascript
+### Send Photo with Caption
+```json
 {
   "tool": "telegram_sendPhoto",
   "params": {
     "chatId": "123456789",
     "photo": "https://example.com/image.jpg",
-    "caption": "这是一张图片"
+    "caption": "Beautiful sunset 🌅"
   }
 }
 ```
 
-### 发送位置
-```javascript
+### Share Location
+```json
 {
   "tool": "telegram_sendLocation",
   "params": {
@@ -98,31 +115,70 @@ npm start
 }
 ```
 
-## 技术栈
+### Edit Message
+```json
+{
+  "tool": "telegram_editMessageText",
+  "params": {
+    "chatId": "123456789",
+    "messageId": 42,
+    "text": "Updated message content ✨"
+  }
+}
+```
 
-- **Node.js** - 运行时环境
-- **node-telegram-bot-api** - Telegram Bot API 客户端
-- **@modelcontextprotocol/sdk** - MCP 协议支持
-- **supergateway** - MCP 服务器网关
+## 🔧 Tech Stack
 
-## 开发计划
+| Technology | Purpose | Version |
+|------------|---------|----------|
+| **Node.js** | Runtime Environment | 18+ |
+| **node-telegram-bot-api** | Telegram Bot Client | Latest |
+| **@modelcontextprotocol/sdk** | MCP Protocol Support | Latest |
+| **supergateway** | MCP Server Gateway | Latest |
 
-查看 [to-do-list.md](./to-do-list.md) 了解详细的开发进度和计划。
+## 🗺️ Development Roadmap
 
-## 贡献
+Check out our [development roadmap](./to-do-list.md) for detailed progress and upcoming features.
 
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
+## 🤝 Contributing
 
-## 联系方式
+We welcome contributions! Here's how you can help:
 
-- **LinkedIn**: [Xingyu Chen](https://www.linkedin.com/in/xingyu-chen-b5b3b0313/)
-- **Email**: guangxiangdebizi@gmail.com
-- **GitHub**: [guangxiangdebizi](https://github.com/guangxiangdebizi/)
+1. 🍴 **Fork** the repository
+2. 🌿 **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. 💾 **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. 📤 **Push** to the branch (`git push origin feature/amazing-feature`)
+5. 🔄 **Open** a Pull Request
 
-## 许可证
+### Issues & Bug Reports
+Found a bug? Have a feature request? Please [open an issue](https://github.com/guangxiangdebizi/telegram-mcp/issues)!
 
-MIT License
+## 📞 Contact & Support
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Xingyu%20Chen-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/xingyu-chen-b5b3b0313/)
+[![Email](https://img.shields.io/badge/Email-guangxiangdebizi%40gmail.com-red?style=for-the-badge&logo=gmail)](mailto:guangxiangdebizi@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-guangxiangdebizi-black?style=for-the-badge&logo=github)](https://github.com/guangxiangdebizi/)
+
+</div>
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+## ⚠️ Important Notes
+
+- 🔑 Ensure your **Telegram Bot Token** is properly configured
+- 🛡️ Verify your bot has the **necessary permissions** for the operations you want to perform
+- 🔒 Keep your bot token **secure** and never commit it to version control
 
 ---
 
-**注意**: 使用前请确保已正确配置 Telegram Bot Token，并且 Bot 具有相应的权限。
+<div align="center">
+
+**Made with ❤️ by [Xingyu Chen](https://github.com/guangxiangdebizi)**
+
+⭐ **Star this repo if you find it helpful!**
+
+</div>
