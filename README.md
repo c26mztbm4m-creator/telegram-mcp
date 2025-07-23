@@ -25,7 +25,7 @@ cd telegram-mcp
 
 2. Install dependencies:
 ```bash
-npm install
+npm install @xingyuchen/telegram-mcp
 ```
 
 3. Build the project:
@@ -48,7 +48,7 @@ npm start
   "mcpServers": {
     "telegram-mcp": {
       "command": "node",
-      "args": ["path/to/telegram-mcp/build/index.js"]
+      "args": ["path/to/@xingyuchen/telegram-mcp/build/index.js"]
     }
   }
 }
