@@ -56,9 +56,14 @@ export const createYougileTask = {
       }
 
       if (validatedArgs.deadline) {
+        const date = new Date(validatedArgs.deadline);
+        if (isNaN(date.getTime())) {
+          throw new Error(`Invalid deadline format: ${validatedArgs.deadline}`);
+        }
+        const hasTime = validatedArgs.deadline.includes('T') || validatedArgs.deadline.includes(':');
         body.deadline = {
-          deadline: validatedArgs.deadline,
-          withTime: false
+          deadline: date.getTime(),
+          withTime: hasTime
         };
       }
 
