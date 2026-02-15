@@ -17,7 +17,15 @@
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["telegram", "mcp", "bot", "api", "model-context-protocol", "claude", "ai"],
+  "keywords": [
+    "telegram",
+    "mcp",
+    "bot",
+    "api",
+    "model-context-protocol",
+    "claude",
+    "ai"
+  ],
   "author": "Xingyu Chen <guangxiangdebizi@gmail.com>",
   "license": "Apache-2.0",
   "description": "A Model Context Protocol (MCP) server for Telegram Bot API integration",
@@ -31,7 +39,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.16.0",
-    "node-telegram-bot-api": "^0.66.0",
+    "node-telegram-bot-api": "^0.63.0",
     "supergateway": "^3.4.0",
     "zod": "^3.25.76"
   },

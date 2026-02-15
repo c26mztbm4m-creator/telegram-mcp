@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "telegram-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Volumes/SSD/health_agency/telegram-bot-mcp/build/index.js"
+      ],
+      "env": {}
+    }
+  }
+}
