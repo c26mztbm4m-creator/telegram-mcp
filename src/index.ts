@@ -10,6 +10,7 @@ import { sendVideo } from "./tools/sendVideo.js";
 import { getChat } from "./tools/getChat.js";
 import { forwardMessage } from "./tools/forwardMessage.js";
 import { deleteMessage } from "./tools/deleteMessage.js";
+import { createYougileTask } from "./tools/createYougileTask.js";
 
 // Create MCP server
 const server = new Server({
@@ -57,6 +58,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         name: deleteMessage.name,
         description: deleteMessage.description,
         inputSchema: deleteMessage.parameters
+      },
+      {
+        name: createYougileTask.name,
+        description: createYougileTask.description,
+        inputSchema: createYougileTask.parameters
       }
     ]
   };
@@ -81,6 +87,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       return await forwardMessage.run(args as any);
     case "delete_message":
       return await deleteMessage.run(args as any);
+    case "create_yougile_task":
+      return await createYougileTask.run(args as any);
     default:
       throw new Error(`Unknown tool: ${request.params.name}`);
   }
